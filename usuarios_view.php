@@ -9,6 +9,7 @@
 		// require_once 'model/usuariosModel/usuariosModel.php';
     //	require 'controller/usuarios_controller/usuarios_controller.php';
 		 require_once('views/modules/usuarios/usuarios.php');
+		 require_once('views/modules/roles/listado_roles')
 		 require_once('views/modules/restaurantes/listado_restaurantes.php');
 		 //require_once 'Model/enlaces.php';
 		 //require_once 'Model/usuariosModel/usuariosModel.php';
