@@ -55,3 +55,28 @@ VALUES
 		 (5, 'CLIENTE','La persona que recibe la orden',1,1,now(),NULL,NULL);
 
 /*OSBIN YOS 22-08-2020 FIN */ 
+
+/*JORGE MONTOYA 23-08-2020 INICIO */ 
+
+CREATE TABLE restaurante (
+  id_restaurante int(11) NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL, 
+  descripcion TEXT(150) NOT NULL,
+  activo boolean DEFAULT 1,
+  usuario_creacion INT(11) UNSIGNED  DEFAULT NULL COMMENT 'FK ID DEL USUARIO QUE INSERTO LA TUPLA',
+  fecha_creacion DATETIME NOT NULL COMMENT 'FECHA EN LA QUE SE INSERTO LA TUPLA',
+  usuario_modificacion INT(11) UNSIGNED NULL DEFAULT NULL COMMENT 'FK ID DEL USUARIO QUE INSERTO LA TUPLA',
+  fecha_modificacion DATETIME NULL DEFAULT NULL COMMENT 'FECHA EN LA QUE SE INSERTO LA TUPLA',
+  PRIMARY KEY (id_restaurante),
+  CONSTRAINT restaurante_usu_cre_f FOREIGN KEY (usuario_creacion) REFERENCES usuarios (id_usuario) ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT restaurante_usu_mod_f FOREIGN KEY (usuario_modificacion) REFERENCES usuarios (id_usuario) ON UPDATE RESTRICT ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO restaurante (id_restaurante,nombre,descripcion,activo,usuario_creacion,fecha_creacion,usuario_modificacion,fecha_modificacion) 
+VALUES
+     (1, 'MIRAFLORES',' C.C. MIRAFLORES ZONA 11',1,1,now(),NULL,NULL),
+     (2, 'TIKAL','HOTEL TIKAL FUTURA ZONA 11',1,1,now(),NULL,NULL),
+     (3, 'SAN LUCAS','C.C. LAS PUERTAS DE SAN LUCAS',1,1,now(),NULL,NULL);
+
+
+/*JORGE MONTOYA 23-08-2020 FIN */ 
