@@ -27,8 +27,8 @@
 	      $_SESSION['usuario'] = $nombreusuario;
 	      $enviar .=  '<center> Bienvenido <br>'.$resultado['usuario']. '</center> <br>';
 	      $enviar .= '<meta http-equiv="refresh" content="4;url=../../index">';
-	      $enviado .= '<center><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><br>
-	                  <span class="">Accediendo Al Sistema...</span></center><br>';
+	     /* $enviado .= '<center><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><br>
+	                  <span class="">Accediendo Al Sistema...</span></center><br>';*/
 
    } else {
    $error .= '<li class="alert alert-danger"> Los Datos ingresados son Incorrecto </li>';

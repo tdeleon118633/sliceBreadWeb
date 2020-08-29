@@ -69,7 +69,7 @@
        <li class="nav-item dropdown  nav-item active float-xs-right">
          <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-windows" aria-hidden="true"></i> Hola! <?php echo  ' ' .strtoupper($_SESSION[ 'nombreusuario']); ?></a>
          <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-          <a class="dropdown-item" href="../modules/usuarios/salir.php"><i class="btn btn-danger btn-sm fa fa-window-close-o"> </i> Cerrar Sesión</a>
+          <a class="dropdown-item" href="Salir"><i class="btn btn-danger btn-sm fa fa-window-close-o"> </i> Cerrar Sesión</a>
           <a class="dropdown-item" href="usuarios"><i class="btn btn-primary btn-sm fa fa-address-book"></i> Usuarios</a>
         </div>
       </li>
@@ -125,9 +125,9 @@
 
       <!-- USUARIO NO ADMINISTRADOR -->
        <li class="nav-item dropdown  nav-item active float-xs-right">
-         <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-windows btn btn-warning btn-sm" aria-hidden="true"></i> Hola ! <?php echo  ' ' .strtoupper($_SESSION[ 'nombreusuario']);  ?></a>
+         <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-windows123 btn btn-warning btn-sm" aria-hidden="true"></i> <?php echo  ' ' .strtoupper($_SESSION[ 'usuario']);  ?></a>
          <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-          <a class="dropdown-item" href="Views/modules/usuarios/salir.php"><i class="btn btn-primary btn-sm fa fa-window-close-o"> </i> Cerrar Sesión A </a>
+          <a class="dropdown-item" href="Salir"><i class="btn btn-primary btn-sm fa fa-window-close-o"> </i> Salir</a>
         </div>
       </li>
     </ul>
