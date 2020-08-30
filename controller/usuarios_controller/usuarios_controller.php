@@ -30,6 +30,7 @@
 				if ($respuesta == 'success') {
 					//header('location:okUsuario');
 					Conexion::fnt_alert_insertar();
+					header('location:reservas');
 				}
 			else{
 					header('location:reservas');
