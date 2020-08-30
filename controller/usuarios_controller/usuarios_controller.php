@@ -29,7 +29,7 @@
 			//$respuesta = 'success';
 				if ($respuesta == 'success') {
 					//header('location:okUsuario');
-					Conexion::fntInsertado();
+					Conexion::fnt_alert_insertar();
 				}
 			else{
 					header('location:reservas');
