@@ -79,7 +79,7 @@
 		            <div class="col-md-6">
 		             <div class="form-group">
 		              <label for="recipient-name" class="form-control-label">Contraseña :</label>
- 									<input type="text" class="form-control" id="recipient-name" name="password" required="">
+ 									<input type="password" class="form-control" id="recipient-name" name="password" required="">
 		            </div>
 		            </div>
 		            <div class="col-md-6">
