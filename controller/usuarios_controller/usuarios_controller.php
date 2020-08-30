@@ -25,8 +25,8 @@
 					                       );
 
 					#pedir la informacion al modelo.
-				//$respuesta = UsuariosModel::ingresarUsuariosModel($datosController , 'usuarios');
-			$respuesta = 'success';
+			$respuesta = UsuariosModel::ingresarUsuariosModel($datosController , 'usuarios');
+			//$respuesta = 'success';
 				if ($respuesta == 'success') {
 					//header('location:okUsuario');
 					Conexion::fntInsertado();
