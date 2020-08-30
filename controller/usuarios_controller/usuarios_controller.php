@@ -10,11 +10,11 @@
  	}
 
  	public function ingresarUsuariocontroller(){
-		print_r($_POST);
-		
+	//	print_r($_POST);
+
  		if (isset($_POST['guardarUsuario'])) {
- 			$datosController = array('nombres'=>$_POST['nombres'],
- 				                      'apellidos'=>$_POST['apellidos'],
+				$datosController = array('nombres'=>$_POST['nombres'],
+					                      'apellidos'=>$_POST['apellidos'],
 															'usuario'=>$_POST['usuario'],
 															'documento'=>$_POST['documento'],
 															'direccion'=>$_POST['direccion'],
@@ -22,17 +22,19 @@
 															'email'=>$_POST['email'],
 															'tipo'=>$_POST['tipo'],
 															'password'=>$_POST['password']
- 				                       );
+					                       );
 
- 				#pedir la informacion al modelo.
- 			$respuesta = UsuariosModel::ingresarUsuariosModel($datosController , 'usuarios');
+					#pedir la informacion al modelo.
+				//$respuesta = UsuariosModel::ingresarUsuariosModel($datosController , 'usuarios');
+			$respuesta = 'success';
+				if ($respuesta == 'success') {
+					//header('location:okUsuario');
+					Conexion::fntInsertado();
+				}
+			else{
+					header('location:reservas');
 
- 			if ($respuesta == 'success') {
- 				header('location:okUsuario');
- 			}else{
- 				header('location:reservas');
-
- 		   }
+			   }
  			}
  	}
 

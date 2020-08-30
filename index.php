@@ -14,7 +14,6 @@ if (!isset($_SESSION['usuario'])  && $_GET["action"] != "salir" ) {
 
 	}
 	if( isset($_SESSION['usuario']) && isset($_GET["action"]) && $_GET["action"] == "Salir" ){
-		PRINT "DSAFADSFADSFAF";
 		header("Location: Views/login/login.php");
 		 session_destroy();
 

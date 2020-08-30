@@ -99,8 +99,8 @@
       <li class="nav-item dropdown nav-item active">
         <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-product-hunt123" aria-hidden="true"></i> Configuracion</a>
         <div class="dropdown-menu" id="sub" aria-labelledby="responsiveNavbarDropdown">
-          <a id="sub" class="dropdown-item" href="listadoProd"><i class="btn btn-primary btn-sm  fa fa fa-users"></i>Roles</a>
-          <a id="sub" class="dropdown-item" href="listadoProd"><i class="btn btn-primary btn-sm  fa fa-user-plus"></i>Restaurantes</a>
+          <a id="sub" class="dropdown-item" href="roles_view.php"><i class="btn btn-primary btn-sm  fa fa fa-users"></i>Roles</a>
+          <a id="sub" class="dropdown-item" href="restaurantes_view.php"><i class="btn btn-primary btn-sm  fa fa-user-plus"></i>Restaurantes</a>
           <a id="sub" class="dropdown-item" href="listadoProd"><i class="btn btn-primary btn-sm  fa fa-list-ol"></i>Categorias</a>
         </div>
       </li>
