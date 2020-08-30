@@ -5,26 +5,23 @@
  class UsuariosController {
    //LISTA TODOS LOS USUARIOS
  	public function getUsuariosController(){
-
- 		$respuesta = UsuariosModel::getUsuariosModel('usuarios');
-    //print_r($respuesta);
-
+		$respuesta = UsuariosModel::getUsuariosModel('usuarios');
     return $respuesta;
- 		/*foreach ($respuesta as $row) {
- 		echo '<tr>
-              <td align="center"> '.$row['nombreusuario'].'</td>
-              <td align="center"> '.date("d-m-Y", strtotime($row['fechacreado'])).'</td>
-			           <td align="center"><a href="index.php?action=editarUsuarios&idusuario='.$row["idusuario"].'"<i class="fa fa-edit btn btn-primary btn-sm"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-			              <a href="index.php?action=usuarios&idBorrar='.$row["idusuario"].'"<i class="fa fa-trash-o btn btn-danger btn-sm"></i></a>
-					               </td>
- 		      </tr>';
- 		}*/
  	}
 
  	public function ingresarUsuariocontroller(){
+		print_r($_POST);
+		
  		if (isset($_POST['guardarUsuario'])) {
- 			$datosController = array('nombreusuario'=>$_POST['nombreusuario'],
- 				                      'password'=>$_POST['password']
+ 			$datosController = array('nombres'=>$_POST['nombres'],
+ 				                      'apellidos'=>$_POST['apellidos'],
+															'usuario'=>$_POST['usuario'],
+															'documento'=>$_POST['documento'],
+															'direccion'=>$_POST['direccion'],
+															'telefono'=>$_POST['telefono'],
+															'email'=>$_POST['email'],
+															'tipo'=>$_POST['tipo'],
+															'password'=>$_POST['password']
  				                       );
 
  				#pedir la informacion al modelo.
@@ -35,7 +32,7 @@
  			}else{
  				header('location:reservas');
 
- 		}
+ 		   }
  			}
  	}
 

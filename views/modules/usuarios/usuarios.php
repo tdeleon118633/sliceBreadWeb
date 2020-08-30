@@ -65,6 +65,7 @@ if (isset($_GET['action'])) {
 					<td class="usuarios" align="center">Doc.Id</td>
 					<td class="usuarios" align="center">email</td>
 					<td class="usuarios" align="center">Tipo</td>
+					<td class="usuarios" align="center">&nbsp;</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -79,6 +80,10 @@ if (isset($_GET['action'])) {
 								<td align="center"><?php print $row['documento']; ?></td>
 								<td align="center"><?php print $row['email']; ?></td>
 								<td align="center"><?php print $row['tipo'] == "admin" ? "Administrador" : "Normal"; ?></td>
+								<td align="center">
+									<a href="index.php?action=editarUsuarios&idusuario=<?php print $row["id_usuario"] ?>"<i class="fa fa-edit btn btn-primary btn-sm"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		 							<a href="index.php?action=usuarios&idBorrar=<?php print $row["id_usuario"] ?>"<i class="<?php print $row["id_usuario"] ?>fa fa-trash-o btn btn-danger btn-sm"></i></a>
+				 				</td>
 						</tr>
 						<?php
 					}
