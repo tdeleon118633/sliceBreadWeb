@@ -17,7 +17,8 @@
 									</button>
 									<strong>Exitos!! </strong>El Registro fue Insertado Satifactoriamente al sistema.
 								</div>
-							</center>';
+							</center>>';
+							//<meta http-equiv="Refresh" content="TIEMPO=10;url=usuarios_view.php"
 		}
 
 		public function fnt_alert_borrar(){

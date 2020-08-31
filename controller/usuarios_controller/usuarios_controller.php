@@ -30,7 +30,9 @@
 				if ($respuesta == 'success') {
 					//header('location:okUsuario');
 					Conexion::fnt_alert_insertar();
-					header('location:reservas');
+					header('location:usuarios_view.php');
+
+			//		header('location: '.$path_direccion);
 				}
 			else{
 					header('location:reservas');
