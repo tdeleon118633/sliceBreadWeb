@@ -15,12 +15,13 @@
           $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "";
           $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
           $activo= isset($_POST['activo']) ? $_POST['activo'] : "";
-          $usuario_creacion= isset($_POST['usuario_creacion']) ? $_POST['usuario_creacion'] : "";
-          $fecha_creacion = isset($_POST['fecha_creacion']) ? $_POST['fecha_creacion'] : "";
-
+          //$id_usuario = $_SESSION['id_usuario'];
+           $id_usuario = 2;
+            //   print_r($_SESSION);
+          //die();
         	$sql = Conexion::conectar()->prepare("INSERT INTO $tabla (nombre,descripcion,activo,usuario_creacion,fecha_creacion)
-               VALUES('{$nombre}','{$descripcion}',{$activo},1,NOW())");
-
+               VALUES('{$nombre}','{$descripcion}',{$activo},{$id_usuario},NOW())");
+   
           if ($sql->execute()) {
         		return 'success';
 

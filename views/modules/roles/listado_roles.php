@@ -6,42 +6,6 @@
 	<ol class="breadcrumb">
 	   <li class="breadcrumb-item active"><i class="fa fa-list"> </i> LISTADO DE ROLES  </li>
 	</ol>
-<?php
-
-if (isset($_GET['action'])) {
- 	if ($_GET['action']== 'okUsuario') {
- 	     echo '<center><div class="alert alert-success alert-dismissible fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Exitos!! </strong>El Rol fue Agregado Satifactoriamente al sistema.
-          </div>
-        </center>';
- 	}
-
- 	if ($_GET['action']== 'okBorrado') {
- 	     echo '<center><div class="alert alert-danger alert-dismissible fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Exitos!! </strong>El Rol fue Borrado Satifactoriamente al sistema.
-          </div>
-        </center>';
- 	}
-
- 	if ($_GET['action']== 'okEdiatdoUsuarios') {
- 	     echo '<center><div class="alert alert-success alert-dismissible fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Exitos!! </strong>El Rol fue Editado Satifactoriamente al sistema.
-          </div>
-        </center>';
- 	}
- }
-
-
- ?>
 
 		<center>
 			<!--  <button class="btn btn-primary" data-toggle="modal" data-target="#usuarios">
