@@ -14,7 +14,6 @@
 				  <li class="nav-item">
 				    <a class="nav-link active" data-toggle="modal" data-target="#usuarios" href="#"><i class="fa fa-user btn btn-outline-info btn-sm"> </i> Nuevo Usuario</a>
 				  </li>
-
 			</ul>
 	  <br>
  <div class="row">
@@ -44,7 +43,9 @@
 								<td align="center"><?php print $row['email']; ?></td>
 								<td align="center"><?php print $row['tipo'] == "admin" ? "Administrador" : "Normal"; ?></td>
 								<td align="center">
-									<a href="index.php?action=editarUsuarios&idusuario=<?php print $row["id_usuario"] ?>"<i class="fa fa-edit btn btn-primary btn-sm"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<a class="nav-link active" data-toggle="modal" data-target="#usuarios" href="#"><i class="fa fa-user btn btn-outline-info btn-sm"> </i>Editar</a>
+
+									<a href="usuarios_view.php?action=editarUsuarios&idusuario=<?php print $row["id_usuario"] ?>"<i class="fa fa-edit btn btn-primary btn-sm"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		 							<a href="index.php?action=usuarios&idBorrar=<?php print $row["id_usuario"] ?>"<i class="<?php print $row["id_usuario"] ?>fa fa-trash-o btn btn-danger btn-sm"></i></a>
 				 				</td>
 						</tr>

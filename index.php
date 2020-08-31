@@ -14,8 +14,9 @@ if (!isset($_SESSION['usuario'])  && $_GET["action"] != "salir" ) {
 
 	}
 	if( isset($_SESSION['usuario']) && isset($_GET["action"]) && $_GET["action"] == "Salir" ){
-		header("Location: Views/login/login.php");
-		 session_destroy();
+ 			session_destroy();
+		  header("Location: Views/login/login.php");
+
 
 		/*	print '<div class="jumbotron jumbotron-fluid">
 				  <div class="container">

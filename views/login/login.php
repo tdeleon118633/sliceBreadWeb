@@ -26,6 +26,7 @@
 				//	die();
 	      $_SESSION['usuario'] = $nombreusuario;
 				$_SESSION['id_usuario'] = $resultado['id_usuario'];
+				print_r($_SESSION);
 				$enviar .=  '<center> Bienvenido <br>'.$resultado['usuario']. '</center> <br>';
 	      $enviar .= '<meta http-equiv="refresh" content="4;url=../../index">';
 	     /* $enviado .= '<center><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><br>

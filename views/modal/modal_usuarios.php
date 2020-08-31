@@ -1,3 +1,10 @@
+<?php
+ //require_once 'Views/modules/ventas/conexion.php';
+ 		$idusuario = $_GET['id_usuario'];
+		print "total: ".$idusuario;
+    // $consulta = $conexion->query("SELECT * FROM usuarios WHERE idusuario = $idusuario");
+?>
+
 		<div class="modal fade" id="usuarios">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -6,10 +13,10 @@
 							<span aria-hidden="true">&times;</span>
 							<span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title">Nuevo Usuario</h4>
+						<h4 class="modal-title">Nuevo Usuario <?php print $idusuario; ?> </h4>
 					</div>
 					<div class="modal-body">
-          <form method="post">
+          <form method="post"  >
 	          <div class="row">
 	          	<div class="col-md-6">
 	              <div class="form-group">
