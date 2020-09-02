@@ -35,8 +35,9 @@
       }
 
       public function deleteUsuariosModel($datosModel,$tabla){
-        $sql = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idusuario = :idusuario");
-        $sql->bindParam(':idusuario', $datosModel, PDO::PARAM_INT);
+
+        $sql = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_usuario = {$datosModel}");
+        print_r($sql);
 
         if ($sql->execute()) {
            return 'success';

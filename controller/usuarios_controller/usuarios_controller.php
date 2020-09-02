@@ -46,10 +46,11 @@
    public function deleteUsuariosController(){
    	 if (isset($_GET['idBorrar'])) {
    	 	$datosController = $_GET['idBorrar'];
-
+			PRINT "5465465";
    	 	$respuesta = UsuariosModel::deleteUsuariosModel($datosController, 'usuarios');
    	 	if ($respuesta == 'success') {
-         header('location:okBorrado');
+					Conexion::fnt_alert_borrar();
+         print '<meta http-equiv="Refresh" content="TIEMPO=10;url=usuarios_view.php"';
    	 	}
    	 }
 
