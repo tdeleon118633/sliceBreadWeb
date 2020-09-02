@@ -1,6 +1,7 @@
 <?php
  //require_once 'Views/modules/ventas/conexion.php';
- 		$idusuario = $_GET['id_usuario'];
+ print_r($_GET);
+ 		$idusuario = isset($_GET['idusuario']) ? $_GET['idusuario'] : 123;
 		print "total: ".$idusuario;
     // $consulta = $conexion->query("SELECT * FROM usuarios WHERE idusuario = $idusuario");
 ?>

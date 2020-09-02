@@ -56,22 +56,41 @@
    }
 
    public function editarUsuariosController(){
+		// print_r($_POST);
       if (isset($_POST['editarUsuario'])) {
-       $datosController = array('nombreusuario' => $_POST['nombreusuario'],
-                                 'password'     => $_POST['password'],
-                                 'idusuario'    => $_POST['idusuario']);
+       /*$datosController = array('nombres' => $_POST['nombres'],
+                                 'apellidos'     => $_POST['apellidos'],
+                                 'id_usuario'    => $_POST['id_usuario']);*/
+				 $datosController = array('nombres'=>$_POST['nombres'],
+ 					                      'apellidos'=>$_POST['apellidos'],
+ 															'usuario'=>$_POST['usuario'],
+ 															'documento'=>$_POST['documento'],
+ 															'direccion'=>$_POST['direccion'],
+ 															'telefono'=>$_POST['telefono'],
+ 															'email'=>$_POST['email'],
+ 															'tipo'=>$_POST['tipo'],
+															'id_usuario'=>$_POST['id_usuario'],
+ 															'password'=>$_POST['password']
+ 					                       );
 
        $respuesta = UsuariosModel::editarUsuariosModel($datosController , 'usuarios');
-
+			// print_r($respuesta);
           if ($respuesta == 'success') {
-         header('location:okEdiatdoUsuarios');
+								Conexion::fnt_alert_edicion();
+								print '<meta http-equiv="Refresh" content="TIEMPO=10;url=usuarios_view.php"';
+         			 //header('location:usuarios_view.php');
 
-      }
+      	}
      }
 
 
 
    }
+
+	 public function getUsuarioController($tabla,$id_usuario){
+	 		$respuesta = UsuariosModel::getUsuarioModel($tabla,$id_usuario);
+			return $respuesta;
+	 }
 
 
  }
