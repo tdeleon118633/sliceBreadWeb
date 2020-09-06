@@ -4,33 +4,34 @@
 
  class RolesController {
    //LISTA TODOS LOS ROLES
- 	public function getRolesController(){
-		$respuesta = RolesModel::getRolesModel('roles');
-    return $respuesta;
- 	}
+ 	                          public function getRolesController(){
+		                       $respuesta = RolesModel::getRolesModel('roles');
+                           return $respuesta;
+                    	}
 
- 	public function ingresarRolesController(){
+    	public function ingresarRolController(){
 	//	print_r($_POST);
 
- 		if (isset($_POST['guardarRol'])) {
-				$datosController = array('nombre'=>$_POST['nombre'],
-					                      'descripcion'=>$_POST['descripcion'],
-															'activo'=>$_POST['activo']
-					                       );
+ 	          	if (isset($_POST['guardarRol'])) {
+			             	$datosController = array('nombre'=>$_POST['nombre'],
+					                                  'descripcion'=>$_POST['descripcion'],
+															               'activo'=>$_POST['activo']
+					                                  );
 
 					#pedir la informacion al modelo.
-			$respuesta = RolesModel::ingresarRolesModel($datosController , 'roles');
+			  $respuesta = RolesModel::ingresarRolesModel($datosController , 'roles');
 			//$respuesta = 'success';
-				if ($respuesta == 'success') {
+				            if ($respuesta == 'success') {
 					//header('location:okUsuario');
-					Conexion::fntInsertado();
-				}
-			else{
-					header('location:reservas');
+					             Conexion::fnt_alert_insertar();
+                       header('location:roles_view.php');
+				              }
+			            else{
+				          	 header('location:reservas');
 
-			   }
- 			}
- 	}
+			                }
+ 			        }
+      	}
 
 
  	//borrar Usuario
@@ -40,29 +41,39 @@
 
    	 	$respuesta = RolesModel::deleteRolesModel($datosController, 'roles');
    	 	if ($respuesta == 'success') {
-         header('location:okBorrado');
+        Conexion::fnt_alert_borrar();
+         print '<meta http-equiv="Refresh" content="TIEMPO=10;url=roles_view.php"';
    	 	}
    	 }
 
    }
 
-   public function editarRolesController(){
-      if (isset($_POST['editarrol'])) {
-       $datosController = array('nombre' => $_POST['nombre'],
-                                 'id_rol'    => $_POST['id_rol']);
+  public function editarRolesController(){
+  print_r($_POST);
 
-       $respuesta = RolesModel::editarRolesModel($datosController , 'roles');
+              if (isset($_POST['editarRol'])) {
+       
+                        $datosController = array('nombre'=>$_POST['nombre'],
+                                                  'descripcion'=>$_POST['descripcion'],
+                                                  'activo'=>$_POST['activo']
+                                                 );
 
-          if ($respuesta == 'success') {
-         header('location:okEditadoRoles');
+          #pedir la informacion al modelo.
+                $respuesta = RolesModel::editarRolesModel($datosController , 'roles');
+      //$respuesta = 'success';
+                  if ($respuesta == 'success') {
+                     Conexion::fnt_alert_edicion();
+                     print '<meta http-equiv="Refresh" content="TIEMPO=10;url=roles_view.php"';
+                     }
 
-      }
-     }
+                }
 
+  }
 
-
+   public function getRolController($tabla,$id_rol){
+      $respuesta = RolesModel::getRolModel($tabla,$id_rol);
+      return $respuesta;
    }
-
 
  }
 

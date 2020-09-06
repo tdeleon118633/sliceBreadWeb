@@ -41,9 +41,12 @@
 								<td align="center"><?php print $row['descripcion']; ?></td>
 								<td align="center"><?php print $row['activo'] == "1" ? "Activo" : "Desactivado"; ?></td>
 								<td align="center">
-									<a href="index.php?action=editarRoles&id_rol=<?php print $row["id_rol"] ?>"<i class="fa fa-edit btn btn-primary btn-sm"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-		 							<a href="index.php?action=roles&idBorrar=<?php print $row["id_rol"] ?>"<i class="<?php print $row["id_rol"] ?>fa fa-trash-o btn btn-danger btn-sm"></i></a>
+									<a href="roles_view.php?action=editar_roles&id_rol=<?php print $row["id_rol"] ?>"<i class="fa fa-edit btn btn-primary btn-sm"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		 							<a href="roles_view.php?action=roles&idBorrar=<?php print $row["id_rol"] ?>"<i class="<?php print $row["id_rol"] ?>fa fa-trash-o btn btn-danger btn-sm"></i></a>
 				 				</td>
+
+				 			
+
 						</tr>
 						<?php
 						}
@@ -54,6 +57,6 @@
 	</div>
  </div>
 
-	 <?php require 'Views/modal/modal_roles.php'; ?>
+	 <?php require 'views/modal/modal_roles.php'; ?>
 </div>
 

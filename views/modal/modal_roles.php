@@ -1,4 +1,12 @@
-<div class="modal fade" id="roles">
+<?php
+ //require_once 'Views/modules/ventas/conexion.php';
+ print_r($_GET);
+ 		$id_rol = isset($_GET['id_rol']) ? $_GET['id_rol'] : 123;
+		print "total: ".$id_rol;
+    // $consulta = $conexion->query("SELECT * FROM usuarios WHERE idusuario = $idusuario");
+?>
+
+		<div class="modal fade" id="roles">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -6,13 +14,13 @@
 							<span aria-hidden="true">&times;</span>
 							<span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title">Nuevo Rol</h4>
+						<h4 class="modal-title">Nuevo Rol <?php print $id_rol; ?> </h4>
 					</div>
 					<div class="modal-body">
 
           <form method="post">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
               <div class="form-group">
                 <label for="recipient-name" class="form-control-label">Nombre:</label>
                 <input type="text" class="form-control" id="recipient-name" name="nombre" required="">
@@ -60,7 +68,7 @@
 		<?php
 
 		 $roles = new RolesController();
-		 $roles->ingresarRolescontroller();
+		 $roles->ingresarRolController();
      //$usuario->deleteUsuariosController();
 
 		 ?>
