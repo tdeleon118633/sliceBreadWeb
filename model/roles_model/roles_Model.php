@@ -14,7 +14,7 @@
           $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "";
           $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
           $activo= isset($_POST['activo']) ? $_POST['activo'] : "";
-          $id_usuario = 2;
+          $id_usuario = 1;
          //$id_usuario = intval($_SESSION['id_usuario']);
           //$id_usuario = $_SESSION['id_usuario'];
           
@@ -56,7 +56,7 @@
           $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : "";
           $activo= isset($_POST['activo']) ? $_POST['activo'] : "";
           $id_rol= isset($_POST['idrol']) ? $_POST['idrol'] : 0;
-          $id_usuario = 2;
+          $id_usuario = 1;
           //$id_usuario= isset($_POST['id_usuario']) ? $_POST['id_usuario'] : "";
           //$id_usuario = $_SESSION['id_usuario'];
           
