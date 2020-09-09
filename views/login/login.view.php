@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../../assets/css/estilos.login.css">
-	<title>Login Sistema Video Club</title>
+	<title>Slice Bread</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 <div class="row">
 	<div class="col-md-12">
     <div class="conta">
-			<?php print $_SERVER['PHP_SELF']; ?>
+			
        <h1>RESTAURANTE MIGAJA DE PAN</h1>
 		<form class="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 		<hr>

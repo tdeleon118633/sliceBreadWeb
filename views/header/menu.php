@@ -91,7 +91,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-product-hunt123" aria-hidden="true"></i> Usuarios</a>
         <div class="dropdown-menu" id="sub" aria-labelledby="responsiveNavbarDropdown">
           <a id="sub" class="dropdown-item" href="usuarios_view.php"><i class="btn btn-primary btn-sm  fa fa fa-users"></i> Usuarios</a>
-          <a id="sub" class="dropdown-item" href="listadoProd"><i class="btn btn-primary btn-sm  fa fa-user-plus"></i> Roles y Perfiles</a>
+          <a id="sub" class="dropdown-item" href="permisos_usuario_view.php"><i class="btn btn-primary btn-sm  fa fa-user-plus"></i> Roles y Perfiles</a>
           <a id="sub" class="dropdown-item" href="listadoProd"><i class="btn btn-primary btn-sm  fa fa-list-ol"></i> Listado Productos</a>
         </div>
       </li>
