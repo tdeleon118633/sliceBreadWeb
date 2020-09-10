@@ -1,8 +1,9 @@
 <?php
- class UsuariosModel{
+ class PermisosUsuarioModel{
 
-      public function getUsuariosModel($tabla){
-        $sql = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+      public function getPermisosUsuarioModel($tabla){
+        $sql = Conexion::conectar()->prepare("
+          SELECT usuarios.usuario ,roles.nombre,$tabla.id_usuario,$tabla.id_rol, $tabla.actualizar, $tabla.agregar, $tabla.eliminar,$tabla.visualizar   FROM $tabla INNER JOIN roles ON $tabla.id_rol = roles.id_rol INNER JOIN usuarios ON $tabla.id_usuario = usuarios.id_usuario  ");
         $sql->execute();
         return $sql->fetchAll();
         $sql->close();
@@ -34,7 +35,7 @@
           $sql->close();
       }
 
-      public function deleteUsuariosModel($datosModel,$tabla){
+      public function deletePermisosUsuarioModel($datosModel,$tabla){
 
         $sql = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_usuario = {$datosModel}");
         print_r($sql);
@@ -49,22 +50,20 @@
           $sql->close();
         }
 
-      public function editarUsuariosModel($datosModel , $tabla){
+      public function editarPermisosUsuarioModel($datosModel , $tabla){
         //$sql = Conexion::conectar()->prepare("UPDATE $tabla SET nombreusuario = :nombreusuario, password = :password WHERE idusuario = :idusuario");
         //print_r($_POST);
-        $nombre = isset($_POST['nombres']) ? $_POST['nombres'] : "";
-        $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : "";
-        $usuario= isset($_POST['usuario']) ? $_POST['usuario'] : "";
-        $documento = isset($_POST['documento']) ? $_POST['documento'] : "";
-        $direccion = isset($_POST['direccion']) ? $_POST['direccion'] : "";
-        $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : "";
-        $email = isset($_POST['email']) ? $_POST['email'] : "";
-        $tipo= isset($_POST['tipo']) ? $_POST['tipo'] : "";
-        $password = isset($_POST['password']) ? hash("SHA256", $_POST['password']): "";
-        $id_usuario= isset($_POST['id_usuario']) ? $_POST['id_usuario'] : "";
+        $actualizar = isset($_POST['actualizar']) ? $_POST['actualizar'] : "";
+        $agregar = isset($_POST['agregar']) ? $_POST['agregar'] : "";
+        $eliminar= isset($_POST['eliminar']) ? $_POST['eliminar'] : "";
+        $visualizar = isset($_POST['visualizar']) ? $_POST['visualizar'] : "";
+        $rol = isset($_POST['id_rol']) ? $_POST['id_rol'] : "";
+        $idusuario= isset($_POST['idusuario']) ? $_POST['idusuario'] : 0;
+        $id_usuario = 22;
+        
         //$id_usuario = intval($_SESSION['id_usuario']);
 
-        $sql = Conexion::conectar()->prepare("UPDATE $tabla  SET nombres =  '{$nombre}', apellidos = '{$apellidos}', usuario = '{$usuario}' ,documento = '{$documento}', direccion = '{$direccion}', telefono = '{$telefono}', email = '{$email}', tipo = '{$tipo}', password = '{$password}' , usuario_modificacion = {$id_usuario}, fecha_modificacion = NOW() WHERE id_usuario =  {$id_usuario} ");
+        $sql = Conexion::conectar()->prepare("UPDATE $tabla  SET actualizar =  '{$actualizar}', agregar = '{$agregar}', eliminar = '{$eliminar}' ,visualizar = '{$visualizar}',id_rol = '{$id_rol}' WHERE id_usuario =  {$id_usuario} ");
         //  print_r($sql);
 
 
@@ -77,7 +76,7 @@
      $sql->close();
   }
 
-      public function getUsuarioModel($tabla,$id_usuario){
+      public function getPermisoUsuarioModel($tabla,$id_usuario){
         $sql = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_usuario = $id_usuario");
         $sql->execute();
         return $sql->fetchAll();

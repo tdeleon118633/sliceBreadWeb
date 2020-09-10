@@ -3,14 +3,14 @@
 <?php
   require_once $path_direccion.'/controller/permisos_usuario_controller/permisos_usuario_controller.php';
     $idusuario = $_GET['idusuario'];
-    $usuarios= new UsuariosController();
-    $consulta =  $usuarios->getUsuarioController("usuarios",$idusuario);
+    $usuarios= new PermisosUsuarioController();
+    $consulta =  $usuarios->getPermisoUsuarioController("permisos_usuario",$idusuario);
 ?>
 
 
 <div class="container">
   <ol class="breadcrumb">
-     <li class="breadcrumb-item active"><i class="fa fa-list"> </i>EDITAR USUARIOS </li>
+     <li class="breadcrumb-item active"><i class="fa fa-list"> </i>Editar Roles y Perfiles </li>
   </ol>
   <div class="row">
     <div class="col-md-2">
@@ -22,71 +22,43 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="recipient-name" class="form-control-label">Nombres:</label>
-                <input type="text" class="form-control" id="recipient-name" name="nombres" value="<?php echo $value['nombres'] ?>" required="">
+                <label for="recipient-name" class="form-control-label">Actualizar:</label>
+                <input type="text" class="form-control" id="recipient-name" name="actualizar" value="<?php echo $value['actualizar'] ?>" required="">
                  <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $value['id_usuario']; ?>">
               </div>
             </div>
             <div class="col-md-6">
                <div class="form-group">
-                <label for="recipient-name" class="form-control-label">Apellidos:</label>
-                <input type="text" class="form-control" id="recipient-name" name="apellidos" value="<?php echo $value['apellidos'] ?>" required="">
+                <label for="recipient-name" class="form-control-label">Agregar:</label>
+                <input type="text" class="form-control" id="recipient-name" name="agregar" value="<?php echo $value['agregar'] ?>" required="">
               </div>
             </div>
           </div>
           <div class="row">
               <div class="col-md-6">
                  <div class="form-group">
-                    <label for="recipient-name" class="form-control-label">Usuario :</label>
-                    <input type="text" class="form-control" id="recipient-name" name="usuario" value="<?php echo $value['usuario'] ?>" required="">
+                    <label for="recipient-name" class="form-control-label">Eliminar:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="eliminar" value="<?php echo $value['eliminar'] ?>" required="">
                 </div>
               </div>
               <div class="col-md-6">
                  <div class="form-group">
-                    <label for="recipient-name" class="form-control-label">Documento:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="documento" value="<?php echo $value['documento'] ?>" required="">
+                    <label for="recipient-name" class="form-control-label">Visualizar:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="visualizar" value="<?php echo $value['visualizar'] ?>" required="">
                 </div>
               </div>
           </div>
           <div class="row">
               <div class="col-md-6">
                  <div class="form-group">
-                    <label for="recipient-name" class="form-control-label">Direccion :</label>
-                    <input type="text" class="form-control" id="recipient-name" name="direccion" value="<?php echo $value['direccion'] ?>" required="">
+                    <label for="recipient-name" class="form-control-label">Rol:</label>
+                    <input type="email" class="form-control" id="recipient-name" name="id_rol" value="<?php echo $value['id_rol'] ?>" required="">
                 </div>
               </div>
-              <div class="col-md-6">
-                 <div class="form-group">
-                    <label for="recipient-name" class="form-control-label">Telefono:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="telefono" value="<?php echo $value['telefono'] ?>" required="">
-                </div>
-              </div>
+ 
           </div>
           <div class="row">
-              <div class="col-md-6">
-                 <div class="form-group">
-                    <label for="recipient-name" class="form-control-label">Correo :</label>
-                    <input type="email" class="form-control" id="recipient-name" name="email" value="<?php echo $value['email'] ?>" required="">
-                </div>
-              </div>
-              <div class="col-md-6">
-                 <div class="form-group">
-                    <label for="recipient-name" class="form-control-label">Tipo:</label>
-                    <select class="form-control chosen-select" id="tipo" name="tipo">
-                     <option value=""  required="" >Seleccione una opción...</option>
-                       <option value="admin" <?php echo $value['tipo'] == 'admin' ? 'selected' : ''   ?> > Administrador</option>
-                       <option value="normal" <?php echo $value['tipo'] == 'normal' ? 'selected' : '' ?>  > Normal</option>
-                    </select>
-                </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-md-6">
-                 <div class="form-group">
-                    <label for="recipient-name" class="form-control-label">Contraseña :</label>
-                    <input type="password" class="form-control" id="recipient-name" name="password" required="">
-                </div>
-              </div>
+
               <div class="col-md-6">
                  <div class="form-group">
                    &nbsp;
@@ -94,7 +66,7 @@
               </div>
           </div>
 
-             <button type="submit" name="editarUsuario" class="btn btn-primary">Guardar</button>
+             <button type="submit" name="editar_permisos_usuario" class="btn btn-primary">Guardar</button>
 
         <?php endforeach ?>
          </form>
@@ -109,8 +81,8 @@
 
 <?php
 
-$eU = new UsuariosController();
-$eU->editarUsuariosController();
+$eU = new PermisosUsuarioController();
+$eU->editarPermisoUsuarioController();
 
 
 
