@@ -6,7 +6,24 @@ if (!isset($_SESSION['usuario'])  && $_GET["action"] != "salir" ) {
 	//print "INDEX"."<BR>";
  //print_r($_GET);
  	if( isset($_GET["action"]) && $_GET["action"] == "index" || isset($_GET["action"])  && $_GET["action"] == "index.php"   ){
+
+ 			?>
+ 			<!-- <link rel="stylesheet" href="public/css/bootstrap.min.css">
+ 			<link rel="stylesheet" href="public/css/font-awesome.css">
+ 		    <link rel="stylesheet" href="public/css/AdminLTE.min.css"> -->
+ 			<?php
+ 			require_once 'config/Conexion.php';
+ 			 require_once 'model/template_model/template_model.php';
 			require 'views/template.php';
+			?>
+ 			<!-- <script src="public/js/jquery-3.1.1.min.js"></script>-->
+    <!-- Bootstrap 3.3.5 -->
+    <!-- AdminLTE App -->
+   <!-- <script src="public/js/app.min.js"></script>
+     <script src="public/js/bootbox.min.js"></script> 
+    <script src="public/js/bootstrap-select.min.js"></script> -->
+
+ 			<?php
 
 			$index = new MvcController();
 			$index->plantilla();
