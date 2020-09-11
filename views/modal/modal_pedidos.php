@@ -52,31 +52,30 @@
 	            </div>
 	          </div>
             <div class="row">
-             <div class="col-md-6">
+              <div class="col-md-6">
                <div class="form-group selector-combo"  >
                   <label for="recipient-name" class="form-control-label">Combos:</label>
                   <select class="form-control" required="" id="IdCombo"  name="IdCombo" >
                     <option value="0">Seleccione:</option>
-                    <?php
-                      $select_combos =  $usuarios->getSelectCombosController();
-                      // Realizamos la consulta para extraer los datos
-                      //foreach ($select_combos as $row) {
-                          // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                        //  echo '<option value="'.$row["id_combo"].'">'.$row["nombre"].'</option>';
-                      //}
-                    ?>
                   </select>
                 </div>
                </div>
-               </div>
+               <div class="col-md-6">
+                <div class="form-group selector-combo"  >
+                   <label for="recipient-name" class="form-control-label">VACIO:</label>
+                 </div>
+                </div>
+            </div>
 
-               <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group" style="height: 160px; border: 1px solid">
+               <div class="row" id="id_detalle_g" >
 
+                    <div class="col-md-6"  >
+                      <div class="form-group"  >
+                        <div style="height: 300px; border: 1px solid" id="divProgramaCurso">
+                        </div>
+                    </div>
                   </div>
-                  </div>
-                  </div>
+              </div>
 
 		        <!--<div class="row">
 		        		<div class="col-md-6">
@@ -156,25 +155,56 @@
      //$usuario->deleteUsuariosController();
 
 		 ?>
-
      <script>
-
       $("#IdTiempoComida").change(function() {
-    //  alert($("#IdTiempoComida").val());
-      $.ajax({
+        $.ajax({
 
-               url: "http://localhost/sliceBreadWeb/views/modal/modal_pedidos0.php",
-                //url: "http://localhost/sliceBreadWeb/controller/pedidos_controller/pedidos_controller.php?contentCombo=true",
-               data:{
-                   "contentCombo" : "true",
-                   "tiempo_comida" : $("#IdTiempoComida").val()
-               },
-                type: "POST",
-               success: function(response)
-               {
-                  console.log(response);
-                   $('.selector-combo select').html(response).fadeIn();
-               }
-       });
+                 url: "http://localhost/sliceBreadWeb/views/modal/modal_pedidos0.php",
+                  //url: "http://localhost/sliceBreadWeb/controller/pedidos_controller/pedidos_controller.php?contentCombo=true",
+                 data:{
+                     "contentCombo" : "true",
+                     "tiempo_comida" : $("#IdTiempoComida").val()
+                 },
+                  type: "POST",
+                 success: function(response)
+                 {
+                    console.log(response);
+                     $('.selector-combo select').html(response).fadeIn();
+                     $("#id_detalle_g").hide();
+                 }
+         });
       });
+
+      $("#id_detalle_g").hide();
+      $("#IdCombo").change(function() {
+           if( $(this).val() > 0 ){
+              console.log("Si");
+              $("#id_detalle_g").show();
+              fntGetDetalle();
+           }
+           else{
+             $("#id_detalle_g").hide();
+           }
+        });
+
+
+        function fntGetDetalle(){
+            $.ajax({
+                   url: "http://localhost/sliceBreadWeb/views/modal/modal_pedidos0.php",
+                   async: false,
+                   data:{
+                       "contentDetalle" : true,
+                       "tiempo_comida" : $("#IdTiempoComida").val(),
+                       "IdCombo" : $("#IdCombo").val()
+                   },
+                   type:'post',
+                   dataType:'html',
+                   beforeSend:function(){
+                   },
+                   success:function(data){
+                       $("#divProgramaCurso").html("");
+                       $("#divProgramaCurso").html(data);
+                   }
+               });
+        }
      </script>
