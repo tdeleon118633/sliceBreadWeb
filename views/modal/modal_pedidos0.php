@@ -60,7 +60,8 @@ else if(isset($_POST["contentDetalle"])){
 								AND cp.id_combo = {$IdCombo} ";
 				$result2 = mysql_query($query2);
 				mysql_close();
-
+					$intSumaTotal = 0;
+					$intSumaU = 0;
 					while (($fila = mysql_fetch_array($result2)) != NULL) {
 						?>
 						<tr>
@@ -69,9 +70,32 @@ else if(isset($_POST["contentDetalle"])){
 								<td align="center" style="width: 30px"><input  class="form-control"  id="txtPrecio" name="txtPrecio" value="<?php print $fila["precio_total"]; ?>" ></td>
 						</tr>
 						<?php
+
+						  $intSumaU +=  $fila["cantidad"];
+							$intSumaTotal +=  $fila["precio_total"];
 					}
 				 ?>
 			</tbody>
+			<tfoot>
+				<tr>
+					<td>
+							&nbsp;
+					</td>
+					<td>
+						<?php print $intSumaU ?>
+						<input type="hidden"  id="txtPrecio" name="txtPrecio" value="<?php print $intSumaTotal ?>" >
+					</td>
+					<td>
+							<?php print $intSumaTotal ?>
+					</td>
+				</tr>
+				  <tr>
+							<td colspan="3">
+
+								 <button type="button" class="btn btn-primary" onclick="fntAgregar('<?php print $intSumaTotal ?>')" >Agregar</button>
+							</td>
+					</tr>
+			</tfoot>
 		</table>
 		<?php
 

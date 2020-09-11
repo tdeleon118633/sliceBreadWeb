@@ -68,12 +68,70 @@
             </div>
 
                <div class="row" id="id_detalle_g" >
-
                     <div class="col-md-6"  >
                       <div class="form-group"  >
                         <div style="height: 300px; border: 1px solid" id="divProgramaCurso">
                         </div>
                     </div>
+                  </div>
+                  <div class="col-md-6"  >
+                                <!--  <div class="form-group">
+                                        <div class="col-lg-12" style="">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <div id="divGeneral" class="col-xs-12" style="height: 600px; background-color: #e7e7e7; border: 1px solid #ccc; overflow-x: hidden; overflow-y: visible;">
+                                                        <div class="form-group" id="divDetalleMasivo">
+                                                            <div class="col-xs-12">
+                                                                <div class="form-group" id="divDetalle">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="col-xs-1" style="width: 2%">&nbsp;</div>
+                                                                        <div class="col-xs-11 main-color-fondo" style="color: #fff;">
+                                                                            <div class="col-xs-5 text-center">
+                                                                              A
+                                                                            </div>
+                                                                            <div class="col-xs-3 text-left">
+                                                                              A
+                                                                            </div>
+                                                                            <div class="col-xs-3 text-right">
+                                                                              A
+                                                                            </div>
+                                                                            <div class="col-xs-1">&nbsp;</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12" id="divEstudiantes">&nbsp;</div>
+                                    </div>-->
+                                     <div class="form-group">
+                                       <div class="col-xs-11" id="idResponsiv" style="height: 675px; background-color: #e7e7e7; border: 1px solid #ccc; overflow-x: hidden; overflow-y: visible;">
+                                       <div class="form-group" id="idWidth">
+
+
+                                                  <div class="form-group">
+                                                      <div class="col-xs-12">
+                                                        <table class="table table-bordered"   id="divDetalle" >
+                                                          <thead  class="bg-primary">
+                                                            <tr>
+                                                              <td align="center" style="width: 50px">&nbsp;</td>
+                                                              <td align="center" style="width: 30px">Total</td>
+                                                              <td align="center" style="width: 30px">Cantidad</td>
+                                                            </tr>
+                                                          </thead>
+                                                          <tbody>
+                                                          </tbody>
+                                                        </table>
+                                                      </div>
+                                                  </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
                   </div>
               </div>
 
@@ -156,6 +214,13 @@
 
 		 ?>
      <script>
+      $("#divLineaDivisora").hide();
+      $("#divGeneral").addClass("table-responsive");
+      $("#divDetalleMasivo").css("width","350px");
+      $("#divGeneral").css("overflow-x","");
+      $("#divGeneral").css("overflow-y","");
+      $("#divGeneral").css("overflow-y","visible");
+
       $("#IdTiempoComida").change(function() {
         $.ajax({
 
@@ -207,4 +272,47 @@
                    }
                });
         }
+
+        function fntAgregar($intSumaTotal){
+          //alert();
+          var intRubro = 1;
+          var strNombreRubro = "";
+          var strHtmlInputText = "";
+          var boolExistenDetalles = false;
+          var strCombo = $( "#IdCombo option:selected" ).text();;
+
+
+
+
+
+                                      strHtml = "<tr  style=\"border-bottom: 1px solid #929496;\" id=\"divDetalle_"+intRubro+"\" >"+
+                                                    "<td class=\" text-left\">"+
+                                                        strCombo+
+                                                    "</td>"+
+                                                    "<td class=\" text-left\">"+
+                                                        $intSumaTotal+
+                                                    "</td>"+
+                                                    "<td>"+
+                                                      "<span id=\"imgDelete_0_18_1\" onclick=\"fntDeleteRubroDetalle('"+intRubro+"');\" class=\"glyphicon glyphicon-trash glyphicon-color btn-md cursor\"></span>"+
+                                                    "</td>"+
+                                               "</tr>";
+                   if(boolExistenDetalles){
+                       $("#divDetalle_"+intRubro).append(strHtml);
+                   }
+                   else{
+                       $("#divDetalle").append(strHtml);
+                   }
+
+                   intRubro ++;
+        }
+
+        function fntDeleteRubroDetalle(intRubro){
+             arrSplitRubro = intRubro.split("_");
+             fntShowEliminarRelacionAnterior(intRubro);
+             $("#divDetalle_"+intRubro).remove();
+             fntCalcularTotalPagosRubros();
+             if(arrSplitRubro[0] != 0){
+                $("#divPanelRubro_"+arrSplitRubro[0]+"_"+arrSplitRubro[1]).css("background-color","#ac162c");
+             }
+         }
      </script>
