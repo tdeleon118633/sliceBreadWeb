@@ -38,7 +38,7 @@
 	            <div class="col-md-6">
 		             <div class="form-group">
 		              <label for="recipient-name" class="form-control-label">Tiempo Comida:</label>
-                  <select class="form-control" id="IdTiempoComida" name="IdTiempoComida" required="" >
+                  <select class="form-control" id="IdTiempoComida" name="IdTiempoComida" required>
                     <option value="0">Seleccione:</option>
                     <?php
                     	$select_combos =  $usuarios->getSelectTiempoCodmidaController();
@@ -75,63 +75,31 @@
                     </div>
                   </div>
                   <div class="col-md-6"  >
-                                <!--  <div class="form-group">
-                                        <div class="col-lg-12" style="">
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <div id="divGeneral" class="col-xs-12" style="height: 600px; background-color: #e7e7e7; border: 1px solid #ccc; overflow-x: hidden; overflow-y: visible;">
-                                                        <div class="form-group" id="divDetalleMasivo">
-                                                            <div class="col-xs-12">
-                                                                <div class="form-group" id="divDetalle">
-                                                                    <div class="col-xs-12">
-                                                                        <div class="col-xs-1" style="width: 2%">&nbsp;</div>
-                                                                        <div class="col-xs-11 main-color-fondo" style="color: #fff;">
-                                                                            <div class="col-xs-5 text-center">
-                                                                              A
-                                                                            </div>
-                                                                            <div class="col-xs-3 text-left">
-                                                                              A
-                                                                            </div>
-                                                                            <div class="col-xs-3 text-right">
-                                                                              A
-                                                                            </div>
-                                                                            <div class="col-xs-1">&nbsp;</div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12" id="divEstudiantes">&nbsp;</div>
-                                    </div>-->
-                                     <div class="form-group">
-                                       <div class="col-xs-11" id="idResponsiv" style="height: 675px; background-color: #e7e7e7; border: 1px solid #ccc; overflow-x: hidden; overflow-y: visible;">
-                                       <div class="form-group" id="idWidth">
+		                   <div class="form-group">
+			                     <div class="col-xs-11" id="idResponsiv" style="height: 400px; background-color: #e7e7e7; border: 1px solid #ccc; overflow-x: hidden; overflow-y: visible;">
+			                     <div class="form-group" id="idWidth">
 
 
-                                                  <div class="form-group">
-                                                      <div class="col-xs-12">
-                                                        <table class="table table-bordered"   id="divDetalle" >
-                                                          <thead  class="bg-primary">
-                                                            <tr>
-                                                              <td align="center" style="width: 50px">&nbsp;</td>
-                                                              <td align="center" style="width: 30px">Total</td>
-                                                              <td align="center" style="width: 30px">Cantidad</td>
-                                                            </tr>
-                                                          </thead>
-                                                          <tbody>
-                                                          </tbody>
-                                                        </table>
-                                                      </div>
-                                                  </div>
+			                                <div class="form-group">
+			                                    <div class="col-xs-12">
+			                                      <table class="table table-bordered"   id="divDetalle" >
+			                                        <thead  class="bg-primary">
+			                                          <tr>
+			                                            <td align="center" style="width: 50px">&nbsp;</td>
+			                                            <td align="center" style="width: 30px">Total</td>
+			                                            <td align="center" style="width: 30px">Cantidad</td>
+			                                          </tr>
+			                                        </thead>
+			                                        <tbody>
+			                                        </tbody>
+			                                      </table>
+			                                    </div>
+			                                </div>
 
 
-                                        </div>
-                                    </div>
-                                </div>
+			                      </div>
+			                  </div>
+			              </div>
                   </div>
               </div>
 
@@ -293,7 +261,7 @@
                                                         $intSumaTotal+
                                                     "</td>"+
                                                     "<td>"+
-                                                      "<span id=\"imgDelete_0_18_1\" onclick=\"fntDeleteRubroDetalle('"+intRubro+"');\" class=\"glyphicon glyphicon-trash glyphicon-color btn-md cursor\"></span>"+
+                                                      "<span id=\"imgDelete_"+intRubro+"\" onclick=\"fntDeleteRubroDetalle('"+intRubro+"');\" class=\"fa fa-trash-o btn btn-danger btn-sm\"></span>"+
                                                     "</td>"+
                                                "</tr>";
                    if(boolExistenDetalles){
@@ -307,12 +275,12 @@
         }
 
         function fntDeleteRubroDetalle(intRubro){
-             arrSplitRubro = intRubro.split("_");
-             fntShowEliminarRelacionAnterior(intRubro);
+             //arrSplitRubro = intRubro.split("_");
+             //fntShowEliminarRelacionAnterior(intRubro);
              $("#divDetalle_"+intRubro).remove();
-             fntCalcularTotalPagosRubros();
+            // fntCalcularTotalPagosRubros();
              if(arrSplitRubro[0] != 0){
-                $("#divPanelRubro_"+arrSplitRubro[0]+"_"+arrSplitRubro[1]).css("background-color","#ac162c");
+              //  $("#divPanelRubro_"+arrSplitRubro[0]+"_"+arrSplitRubro[1]).css("background-color","#ac162c");
              }
          }
      </script>

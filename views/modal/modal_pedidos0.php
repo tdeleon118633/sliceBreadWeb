@@ -14,7 +14,8 @@ if (isset($_POST['contentCombo'])) {
 						 FROM combo_producto cp
      					    INNER JOIN combo c
      			 						ON c.id_combo = cp.id_combo
-     				WHERE cp.id_tiempo_comida =  {$tiempo_comida} ";
+     				WHERE cp.id_tiempo_comida =  {$tiempo_comida}
+						GROUP BY cp.id_combo ";
 		$result = mysql_query($query)
 					or die("Ocurrio un error en la consulta SQL");
 		mysql_close();
@@ -57,7 +58,7 @@ else if(isset($_POST["contentDetalle"])){
                        INNER JOIN producto p
                            ON  p.id_producto = cp.id_producto
 								WHERE cp.id_tiempo_comida =  {$tiempo_comida}
-								AND cp.id_combo = {$IdCombo} ";
+								AND cp.id_combo = {$IdCombo}";
 				$result2 = mysql_query($query2);
 				mysql_close();
 					$intSumaTotal = 0;
