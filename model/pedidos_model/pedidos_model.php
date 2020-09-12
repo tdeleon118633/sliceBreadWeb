@@ -32,19 +32,17 @@
         $sql->close();
 		  }
 
-      public function ingresarPedidosModel($Id_cliente,$Id_tiempo_comida,$id_combo,$id_producto,$cantidad,$tabla){
+      public function ingresarPedidosModel($intCorrelativo,$Id_cliente,$Id_tiempo_comida,$id_combo,$id_producto,$cantidad,$tabla){
 
-            $id_usuario = 1;
-
-
-        	$sql = Conexion::conectar()->prepare("INSERT INTO $tabla (cod_pedido,id_cliente,id_tiempo_comida,id_combo,id_producto,cantidad,usuario_creacion,fecha_creacion)
-               VALUES('9','{$Id_cliente}','{$Id_tiempo_comida}','{$id_combo}','{$id_producto}',{$cantidad},{$id_usuario},NOW())");
-               print $sql;
+            //  $cod_pedido = 9;
+              $id_usuario = 1;
+            	$sql = Conexion::conectar()->prepare("INSERT INTO pedido (cod_pedido,id_cliente,id_tiempo_comida,id_combo,id_producto,cantidad,usuario_creacion,fecha_creacion)
+                   VALUES('{$intCorrelativo}','{$Id_cliente}','{$Id_tiempo_comida}','{$id_combo}','{$id_producto}','{$cantidad}',{$id_usuario},NOW())");
           if ($sql->execute()) {
-        		//return 'success';
+        		return 'success';
         	}
           else{
-        		//return 'error';
+        		return 'error';
         	}
 
           //$sql->close();
@@ -63,6 +61,22 @@
         }
 
           $sql->close();
+        }
+
+        public function InsertPedidoCorrelativo(){
+
+          $sql = Conexion::conectar()->prepare("INSERT INTO pedido_correlativo value() ");
+          $sql->execute();
+          $id = 0;
+
+           $sql2 = Conexion::conectar()->prepare("select  MAX(cod_pedido) AS id  FROM pedido_correlativo ");
+           $sql2->execute();
+           $arrID = $sql2->fetchAll();
+           foreach ($arrID as $row) {
+             $id = trim($row['id']);
+           }
+           return $id;
+          //$sql->close();
         }
 
       public function editarUsuariosModel($datosModel , $tabla){

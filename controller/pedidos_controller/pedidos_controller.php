@@ -25,14 +25,16 @@ require_once $path_direccion.'/model/pedidos_model/pedidos_model.php';
       $Id_cliente = isset($_POST['IdCliente']) ? $_POST['IdCliente'] : "";
       $Id_tiempo_comida = isset($_POST['IdTiempoComida']) ? $_POST['IdTiempoComida'] : "";
       $Id_combo = isset($_POST['IdCombo']) ? $_POST['IdCombo'] : "";
+      $intCorrelativo = PedidosModel::InsertPedidoCorrelativo();
+      //print "XXXXXXX ".$intCorrelativo;
       while( $rTMP = each($_POST) ){
           $arrExplode = explode("_",$rTMP["key"]);
             //print_r($arrExplode[1]);
            if( $arrExplode[0] == "hdnProducto" && isset($arrExplode[1])  && isset($arrExplode[2])  ){
              //$inProduct = isset($_POST["hdnProducto_{$arrExplode[1]}_{$arrExplode[2]}"]) ? $_POST["hdnroducto_{$arrExplode[1]}_{$arrExplode[2]}"] : 0;
              //$inProduct = isset($_POST["hdnProducto_{$arrExplode[1]}"]) ? $_POST["hdnroducto_{$arrExplode[1]}"] : 0;
-             /$respuesta = PedidosModel::ingresarPedidosModel($Id_cliente,$Id_tiempo_comida,$arrExplode[1],$arrExplode[2],1,'pedido');
-              print $Id_cliente." - ".$Id_tiempo_comida." - ".$arrExplode[1]." - ".$arrExplode[2].' 1 - pedido |';
+              $respuesta = PedidosModel::ingresarPedidosModel($intCorrelativo,$Id_cliente,$Id_tiempo_comida,$arrExplode[1],$arrExplode[2],1,'pedido');
+            //  print $Id_cliente." - ".$Id_tiempo_comida." - ".$arrExplode[1]." - ".$arrExplode[2].' 1 - pedido |';
            }
             //  print "<br>";
       }
@@ -42,8 +44,9 @@ require_once $path_direccion.'/model/pedidos_model/pedidos_model.php';
 			//$respuesta = 'success';
 				if ($respuesta == 'success') {
 					//header('location:okUsuario');
-					Conexion::fnt_alert_insertar();
-					header('location:pedidos_view.php');
+				//	Conexion::fnt_alert_insertar();
+				//  	header('location:pedidos_view.php');
+           print '<meta http-equiv="Refresh" content="TIEMPO=10;url=pedidos_view.php"';
 
 			//		header('location: '.$path_direccion);
 				}
