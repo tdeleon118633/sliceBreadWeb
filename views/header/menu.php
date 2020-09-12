@@ -105,6 +105,15 @@
         </div>
       </li>
 
+      <li class="nav-item dropdown nav-item active">
+        <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-universal-access123" aria-hidden="true"></i> Pedidos</a>
+
+        <div class="dropdown-menu" id="sub" aria-labelledby="responsiveNavbarDropdown">
+          <a id="sub" class="dropdown-item" href="pedidos_view.php"><i class="btn btn-primary btn-sm  fa fa-list-ol"></i> Pedidos</a>
+        </div>
+      </li>
+
+
       <!--<li class="nav-item dropdown nav-item active">
         <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-universal-access123" aria-hidden="true"></i> Categorías</a>
 

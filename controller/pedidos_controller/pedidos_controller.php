@@ -80,7 +80,7 @@ print_r($_POST);
    }
 
 	 public function getUsuarioController($tabla,$id_usuario){
-	 		$respuesta = UsuariosModel::getUsuarioModel($tabla,$id_usuario);
+	 		$respuesta = PedidosModel::getUsuarioModel($tabla,$id_usuario);
 			return $respuesta;
 	 }
 

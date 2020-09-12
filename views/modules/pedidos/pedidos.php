@@ -47,7 +47,7 @@
 								<td align="center"><?php print $row['email']; ?></td>
 								<td align="center"><?php print $row['tipo'] == "admin" ? "Administrador" : "Normal"; ?></td>-->
 								<td align="center">
-									<a href="usuarios_view.php?action=editarUsuarios&idusuario=<?php print $row["id_pedido"] ?>"<i class="fa fa-edit btn btn-primary btn-sm"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<a href="editar_pedidos.php?action=Editarpedidos&idPedido=<?php print $row["id_pedido"] ?>"<i class="fa fa-edit btn btn-primary btn-sm"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		 							<a href="usuarios_view.php?action=usuarios&idBorrar=<?php print $row["id_pedido"] ?>"<i class="<?php print $row["id_usuario"] ?>fa fa-trash-o btn btn-danger btn-sm"></i></a>
 				 				</td>
 						</tr>

@@ -1,10 +1,11 @@
 
 
 <?php
+print_r($_GET);
  //require_once 'Views/modules/ventas/conexion.php';
- 	  require_once $path_direccion.'/controller/usuarios_controller/usuarios_controller.php';
-    $idusuario = $_GET['idusuario'];
-    $usuarios= new UsuariosController();
+ 	  require_once $path_direccion.'/controller/pedidos_controller/pedidos_controller.php';
+    $idusuario = $_GET['idPedido'];
+    $usuarios= new PedidosController();
     $consulta =  $usuarios->getUsuarioController("usuarios",$idusuario);
     //$consulta = getUsuarios("usuarios",$idusuario);
   //  print_r($_GET);
@@ -112,8 +113,8 @@
 
 <?php
 
-$eU = new UsuariosController();
-$eU->editarUsuariosController();
+//$eU = new UsuariosController();
+//$eU->editarUsuariosController();
 
 
 
