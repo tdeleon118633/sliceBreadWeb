@@ -30,7 +30,7 @@
         $sql->close();
 		  }
 
-      public function ingresarUsuariosModel($datosModel , $tabla){
+      public function ingresarPedidosModel($datosModel , $tabla){
 
           $nombre = isset($_POST['nombres']) ? $_POST['nombres'] : "";
           $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : "";

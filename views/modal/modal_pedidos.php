@@ -24,7 +24,7 @@
 	          	<div class="col-md-6">
 	              <div class="form-group">
 	                <label for="recipient-name" class="form-control-label">Cliente:</label>
-                  <select class="form-control" required="" >
+                  <select class="form-control" id="IdCliente" name="IdCliente"  required="" >
                     <option value="0">Seleccione:</option>
                     <?php
                     	$select_cliente =  $usuarios->getSelectClienteController();
@@ -102,69 +102,9 @@
 			              </div>
                   </div>
               </div>
-
-		        <!--<div class="row">
-		        		<div class="col-md-6">
-			             <div class="form-group">
-			              	<label for="recipient-name" class="form-control-label">Usuario :</label>
-			              	<input type="text" class="form-control" id="recipient-name" name="usuario" required="">
-			            </div>
-		            </div>
-		            <div class="col-md-6">
-			             <div class="form-group">
-			              	<label for="recipient-name" class="form-control-label">Documento:</label>
-			              	<input type="text" class="form-control" id="recipient-name" name="documento" required="">
-			            </div>
-		            </div>
-		        </div>
-						<div class="row">
-		            <div class="col-md-6">
-			             <div class="form-group">
-			              	<label for="recipient-name" class="form-control-label">Direccion :</label>
-			              	<input type="text" class="form-control" id="recipient-name" name="direccion" required="">
-			            </div>
-		            </div>
-		            <div class="col-md-6">
-			             <div class="form-group">
-			              	<label for="recipient-name" class="form-control-label">Telefono:</label>
-			              	<input type="text" class="form-control" id="recipient-name" name="telefono" required="">
-			            </div>
-		            </div>
-		        </div>
-						<div class="row">
-		            <div class="col-md-6">
-			             <div class="form-group">
-			              	<label for="recipient-name" class="form-control-label">Correo :</label>
-			              	<input type="email" class="form-control" id="recipient-name" name="email" required="">
-			            </div>
-		            </div>
-		            <div class="col-md-6">
-			             <div class="form-group">
-				              <label for="recipient-name" class="form-control-label">Tipo:</label>
-											<select class="form-control chosen-select" id="tipo" name="tipo">
-						           <option value=""  required="" >Seleccione una opción...</option>
-						             <option value="admin"> Administrador</option>
-												 <option value="normal"> Normal</option>
-						        	</select>
-			            </div>
-		            </div>
-		        </div>
-						<div class="row">
-		            <div class="col-md-6">
-			             <div class="form-group">
-			              	<label for="recipient-name" class="form-control-label">Contraseña :</label>
-	 										<input type="password" class="form-control" id="recipient-name" name="password" required="">
-			            </div>
-		            </div>
-		            <div class="col-md-6">
-			             <div class="form-group">
-										 &nbsp;
-			            </div>
-		            </div>
-		        </div>-->
 		        <div class="modal-footer">
 		          <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
-		          <button type="submit" class="btn btn-primary" name="guardarUsuario">Guardar</button>
+		          <button type="submit" class="btn btn-primary" name="frmPedidos">Guardar</button>
 		          </form>
 		        </div>
       		</div>
@@ -240,10 +180,10 @@
                    }
                });
         }
-
+       var intRubro = 1;
         function fntAgregar($intSumaTotal){
           //alert();
-          var intRubro = 1;
+
           var strNombreRubro = "";
           var strHtmlInputText = "";
           var boolExistenDetalles = false;

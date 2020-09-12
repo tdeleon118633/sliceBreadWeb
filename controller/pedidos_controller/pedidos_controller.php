@@ -15,20 +15,14 @@ print_r($_POST);
  	public function ingresarUsuariocontroller(){
 	//	print_r($_POST);
 
- 		if (isset($_POST['guardarUsuario'])) {
-				$datosController = array('nombres'=>$_POST['nombres'],
-					                      'apellidos'=>$_POST['apellidos'],
-															'usuario'=>$_POST['usuario'],
-															'documento'=>$_POST['documento'],
-															'direccion'=>$_POST['direccion'],
-															'telefono'=>$_POST['telefono'],
-															'email'=>$_POST['email'],
-															'tipo'=>$_POST['tipo'],
-															'password'=>$_POST['password']
+ 		if (isset($_POST['frmPedidos'])) {
+				$datosController = array('IdCliente'=>$_POST['IdCliente'],
+					                       'IdTiempoComida'=>$_POST['IdTiempoComida'],
+															   'IdCombo'=>$_POST['IdCombo']
 					                       );
 
 					#pedir la informacion al modelo.
-			$respuesta = UsuariosModel::ingresarUsuariosModel($datosController , 'usuarios');
+			$respuesta = PedidosModel::ingresarPedidosModel($datosController , 'usuarios');
 			//$respuesta = 'success';
 				if ($respuesta == 'success') {
 					//header('location:okUsuario');
@@ -78,17 +72,11 @@ print_r($_POST);
  					                       );
 
        $respuesta = UsuariosModel::editarUsuariosModel($datosController , 'usuarios');
-			// print_r($respuesta);
           if ($respuesta == 'success') {
 								Conexion::fnt_alert_edicion();
 								print '<meta http-equiv="Refresh" content="TIEMPO=10;url=usuarios_view.php"';
-         			 //header('location:usuarios_view.php');
-
       	}
      }
-
-
-
    }
 
 	 public function getUsuarioController($tabla,$id_usuario){

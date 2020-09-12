@@ -39,17 +39,20 @@ else if(isset($_POST["contentDetalle"])){
 			<thead  class="bg-primary">
 				<tr>
 					<td align="center" style="width: 50px">&nbsp;</td>
-					<td align="center" style="width: 30px">Precio U</td>
+					<td align="center" style="width: 30px">Unidades</td>
 					<td align="center" style="width: 30px">Cantidad</td>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 
+
+
 				$query2 ="SELECT cp.id_combo
                        ,c.nombre
                        ,p.id_producto
                        ,p.nombre nombre_producto
+											 ,p.id_extras
 											 ,cp.cantidad
 											 ,cp.precio_total
 						    FROM   combo_producto cp
@@ -60,13 +63,37 @@ else if(isset($_POST["contentDetalle"])){
 								WHERE cp.id_tiempo_comida =  {$tiempo_comida}
 								AND cp.id_combo = {$IdCombo}";
 				$result2 = mysql_query($query2);
-				mysql_close();
+
+			  $query = " SELECT id_producto, nombre FROM producto WHERE id_extras = 1 ";
+			  $result3 = mysql_query($query);
 					$intSumaTotal = 0;
 					$intSumaU = 0;
 					while (($fila = mysql_fetch_array($result2)) != NULL) {
 						?>
 						<tr>
+							<?php
+							 if( $fila["id_extras"]  == 1  ){
+									?>
+									<td>
+										<select class="form-control" required="" id="idExtras"  name="idExtras" >
+											<option value="0">Seleccione:</option>
+											<?php
+											while (($fila2 = mysql_fetch_array($result3)) != NULL) {
+														?>
+														<option value="<?php print $fila2["id_producto"] ?>" <?php echo $fila['id_extras'] == 1 ? 'selected' : '' ?>  ><?php print $fila2["nombre"] ?></option>
+														<?php
+												}
+											?>
+										</select>
+									</td>
+									<?php
+							}
+							else{
+							 ?>
 							  <td align="center"  style="width: 50px"><?php print $fila["nombre_producto"]; ?></td>
+								<?php
+									}
+								 ?>
 								<td align="center" style="width: 30px" ><input  class="form-control"  id="txtCantidad" name="txtCantidad" value="<?php print $fila["cantidad"]; ?>" ></td>
 								<td align="center" style="width: 30px"><input  class="form-control"  id="txtPrecio" name="txtPrecio" value="<?php print $fila["precio_total"]; ?>" ></td>
 						</tr>
