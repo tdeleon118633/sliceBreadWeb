@@ -4,11 +4,8 @@
 	<?php
 		$path_direccion = dirname(__FILE__);
  		require_once $path_direccion.'/config/Conexion.php';
-	 	// print "VISTA/CONTROLLDOR/MODELO"."<br>";
-	  // print_r($_GET);
-		// require_once 'model/usuariosModel/usuariosModel.php';
-    //	require 'controller/usuarios_controller/usuarios_controller.php';
-		print_r($_POST);
+
+		print_r($_GET);
 		$idusuario = isset($_GET['idPedido']) ? intval($_GET['idPedido']) : 0;
 		$idusuario = isset($_GET['action']) && $_GET['action'] == 'Editarpedidos' ? 1 : 0;
 
