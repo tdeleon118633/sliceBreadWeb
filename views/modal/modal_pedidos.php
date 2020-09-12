@@ -62,7 +62,7 @@
                </div>
                <div class="col-md-6">
                 <div class="form-group selector-combo"  >
-                   <label for="recipient-name" class="form-control-label">VACIO:</label>
+                   <label for="recipient-name" class="form-control-label">&NBSP;</label>
                  </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
 			                                            <td align="center" style="width: 30px">Cantidad</td>
 			                                          </tr>
 			                                        </thead>
-			                                        <tbody>
+			                                        <tbody id="idHidenGuardados" >
 			                                        </tbody>
 			                                      </table>
 			                                    </div>
@@ -117,7 +117,7 @@
 		<?php
 
 		 $pedidos = new PedidosController();
-		 $test = $pedidos->getSelectCombosController();
+		 $test = $pedidos->ingresarUsuariocontroller();
      //$usuario->deleteUsuariosController();
 
 		 ?>
@@ -187,15 +187,23 @@
           var strNombreRubro = "";
           var strHtmlInputText = "";
           var boolExistenDetalles = false;
-          var strCombo = $( "#IdCombo option:selected" ).text();;
+          var strCombo = $( "#IdCombo option:selected" ).text();
+					var id_combo = $( "#IdCombo option:selected" ).val();
+					 strHtml2 = "";
+						$("input[name*='txtCantidad_']").each(function(){
+								arrSplit = $(this).attr("name").split("_");
+								 var producto = $("#hdnProducto_"+arrSplit[1]).val();
+								strHtml2  += "<input type=\"hidden\"  id=\"hdnProducto_"+id_combo+"_"+arrSplit[1]+"\" name=\"hdnProducto_"+id_combo+"_"+arrSplit[1]+"\"  value=\""+producto+"\"  >";
 
+						 });
 
-
+						 	$("#idHidenGuardados").append(strHtml2);
 
 
                                       strHtml = "<tr  style=\"border-bottom: 1px solid #929496;\" id=\"divDetalle_"+intRubro+"\" >"+
-                                                    "<td class=\" text-left\">"+
+                                                    "<td class=\" text-left\" >"+
                                                         strCombo+
+
                                                     "</td>"+
                                                     "<td class=\" text-left\">"+
                                                         $intSumaTotal+

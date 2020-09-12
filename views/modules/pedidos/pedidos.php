@@ -26,6 +26,7 @@
 					<td class="usuarios" align="center">No. Pedido</td>
 					<td class="usuarios" align="center">Cliente</td>
 					<td class="usuarios" align="center">Doc.Id</td>
+					<td class="usuarios" align="center">TIEMPO COMIDA</td>
 					<td class="usuarios" align="center">&nbsp;</td>
 				</tr>
 			</thead>
@@ -43,11 +44,11 @@
 						<tr>
 							  <td align="center"><?php print $row['id_pedido']; ?></td>
 								<td align="center"><?php print $row['nombres']." ".$row['apellidos']; ?></td>
-								<!--<td align="center"><?php print $row['documento']; ?></td>
-								<td align="center"><?php print $row['email']; ?></td>
+								<td align="center"><?php print $row['timpo_comida_nombre']; ?></td>
+								<!--<td align="center"><?php print $row['email']; ?></td>
 								<td align="center"><?php print $row['tipo'] == "admin" ? "Administrador" : "Normal"; ?></td>-->
 								<td align="center">
-									<a href="pedidos_view.php?action=Editarpedidos&idPedido=<?php print $row["id_pedido"] ?>"<i class="fa fa-edit btn btn-primary btn-sm"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<a href="pedidos_view.php?action=Editarpedidos&idPedido=<?php print $row["cod_pedido"] ?>&idCliente=<?php print $row["id_cliente"] ?>"<i class="fa fa-edit btn btn-primary btn-sm"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		 							<a href="usuarios_view.php?action=usuarios&idBorrar=<?php print $row["id_pedido"] ?>"<i class="<?php print $row["id_usuario"] ?>fa fa-trash-o btn btn-danger btn-sm"></i></a>
 				 				</td>
 						</tr>

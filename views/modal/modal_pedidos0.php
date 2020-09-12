@@ -94,8 +94,10 @@ else if(isset($_POST["contentDetalle"])){
 								<?php
 									}
 								 ?>
-								<td align="center" style="width: 30px" ><input  class="form-control"  id="txtCantidad" name="txtCantidad" value="<?php print $fila["cantidad"]; ?>" ></td>
-								<td align="center" style="width: 30px"><input  class="form-control"  id="txtPrecio" name="txtPrecio" value="<?php print $fila["precio_total"]; ?>" ></td>
+								 <input type="hidden"  id="hdnPrecio_<?php print $fila["id_producto"] ?>" name="hdnPrecio_<?php print $fila["id_producto"] ?>" value="<?php print $fila["id_producto"]; ?>" >
+								  <input type="hidden"  id="hdnProducto_<?php print $fila["id_producto"] ?>" name="hdnProducto_<?php print $fila["id_producto"] ?>" value="<?php print $fila["id_producto"]; ?>" >
+								<td align="center" style="width: 30px" ><input  class="form-control"  id="txtCantidad_<?php print $fila["id_producto"] ?>" name="txtCantidad_<?php print $fila["id_producto"] ?>" value="<?php print $fila["cantidad"]; ?>" ></td>
+								<td align="center" style="width: 30px"><input  class="form-control"  id="txtPrecio_" name="txtPrecio_" value="<?php print $fila["precio_total"]; ?>" ></td>
 						</tr>
 						<?php
 
@@ -104,7 +106,7 @@ else if(isset($_POST["contentDetalle"])){
 					}
 				 ?>
 			</tbody>
-			<tfoot>
+			<tfoot  >
 				<tr>
 					<td>
 							&nbsp;

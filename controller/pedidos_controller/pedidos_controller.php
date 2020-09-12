@@ -3,7 +3,7 @@
 require_once $path_direccion.'/model/pedidos_model/pedidos_model.php';
 
 
-print_r($_POST);
+//print_r($_POST);
 
  class PedidosController {
    //LISTA TODOS LOS USUARIOS
@@ -13,21 +13,37 @@ print_r($_POST);
  	}
 
  	public function ingresarUsuariocontroller(){
-	//	print_r($_POST);
+
 
  		if (isset($_POST['frmPedidos'])) {
 				$datosController = array('IdCliente'=>$_POST['IdCliente'],
 					                       'IdTiempoComida'=>$_POST['IdTiempoComida'],
 															   'IdCombo'=>$_POST['IdCombo']
 					                       );
+      //print_r($datosController);
+      reset($_POST);
+      $Id_cliente = isset($_POST['IdCliente']) ? $_POST['IdCliente'] : "";
+      $Id_tiempo_comida = isset($_POST['IdTiempoComida']) ? $_POST['IdTiempoComida'] : "";
+      $Id_combo = isset($_POST['IdCombo']) ? $_POST['IdCombo'] : "";
+      while( $rTMP = each($_POST) ){
+          $arrExplode = explode("_",$rTMP["key"]);
+            //print_r($arrExplode[1]);
+           if( $arrExplode[0] == "hdnProducto" && isset($arrExplode[1])  && isset($arrExplode[2])  ){
+             //$inProduct = isset($_POST["hdnProducto_{$arrExplode[1]}_{$arrExplode[2]}"]) ? $_POST["hdnroducto_{$arrExplode[1]}_{$arrExplode[2]}"] : 0;
+             //$inProduct = isset($_POST["hdnProducto_{$arrExplode[1]}"]) ? $_POST["hdnroducto_{$arrExplode[1]}"] : 0;
+             /$respuesta = PedidosModel::ingresarPedidosModel($Id_cliente,$Id_tiempo_comida,$arrExplode[1],$arrExplode[2],1,'pedido');
+              print $Id_cliente." - ".$Id_tiempo_comida." - ".$arrExplode[1]." - ".$arrExplode[2].' 1 - pedido |';
+           }
+            //  print "<br>";
+      }
 
 					#pedir la informacion al modelo.
-			$respuesta = PedidosModel::ingresarPedidosModel($datosController , 'usuarios');
+		//	$respuesta = PedidosModel::ingresarPedidosModel($datosController , 'usuarios');
 			//$respuesta = 'success';
 				if ($respuesta == 'success') {
 					//header('location:okUsuario');
 					Conexion::fnt_alert_insertar();
-					header('location:usuarios_view.php');
+					header('location:pedidos_view.php');
 
 			//		header('location: '.$path_direccion);
 				}
@@ -79,10 +95,15 @@ print_r($_POST);
      }
    }
 
-	 public function getUsuarioController($tabla,$id_usuario){
-	 		$respuesta = PedidosModel::getUsuarioModel($tabla,$id_usuario);
+	 public function getUsuarioController($tabla,$idpedido,$idcliente){
+	 		$respuesta = PedidosModel::getUsuarioModel($tabla,$idpedido,$idcliente);
 			return $respuesta;
 	 }
+
+   public function getPedidoDetalleComboController($tabla,$idpedido,$idcliente){
+      $respuesta = PedidosModel::getPedidoDetalleComboModel($tabla,$idpedido,$idcliente);
+      return $respuesta;
+   }
 
 	 public function getSelectClienteController(){
 		 $respuesta = PedidosModel::getSelectClienteModel('usuarios');

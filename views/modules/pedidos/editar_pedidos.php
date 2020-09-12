@@ -1,15 +1,29 @@
 
 
 <?php
-print_r($_GET);
+//print_r($_GET);
  //require_once 'Views/modules/ventas/conexion.php';
  	  require_once $path_direccion.'/controller/pedidos_controller/pedidos_controller.php';
-    $idusuario = $_GET['idPedido'];
+    $idpedido = $_GET['idPedido'];
+    $idcliente = $_GET['idCliente'];
     $usuarios= new PedidosController();
-    $consulta =  $usuarios->getUsuarioController("usuarios",$idusuario);
+    $consulta =  $usuarios->getUsuarioController("usuarios",$idpedido,$idcliente);
+    print "<pre>";
+    //print_r($consulta);
+    print "</pre>";
     //$consulta = getUsuarios("usuarios",$idusuario);
   //  print_r($_GET);
+  //print_r($consulta);
+   /*-$arrData = array();
+   foreach ($consulta as $row => $value2){
+      $arrData["cod_pedido"] = $value2["cod_pedido"];
+      $arrData["id_cliente"] = $value2["id_cliente"];
+      $arrData["id_tiempo_comida"] = $value2["id_tiempo_comida"];
+   }*/
+
+  // print_r($arrData);
 ?>
+
 
 
 <div class="container">
@@ -31,8 +45,10 @@ print_r($_GET);
                   <option value="0">Seleccione:</option>
                   <?php
                     $select_cliente =  $usuarios->getSelectClienteController();
+                  //  print_r($select_cliente);
                     foreach ($select_cliente as $row) {
-                        echo '<option value="'.$row["id_usuario"].'">'.$row["nombres"].'</option>';
+                        $strSelect = $value['id_cliente'] == $row["id_usuario"] ? 'selected' : '';
+                        echo '<option value="'.$row["id_usuario"].'"  '.$strSelect.'   >'.$row["nombres"].'</option>';
                     }
                   ?>
                 </select>
@@ -45,62 +61,27 @@ print_r($_GET);
                   <option value="0">Seleccione:</option>
                   <?php
                     $select_combos =  $usuarios->getSelectTiempoCodmidaController();
-                    //print_r($select_combos);
                     foreach ($select_combos as $row) {
-                        echo '<option value="'.$row["id_tiempo_comida"].'">'.$row["nombre"].'</option>';
+                           $strSelect = $value['id_tiempo_comida'] == $row["id_tiempo_comida"] ? 'selected' : '';
+                        echo '<option value="'.$row["id_tiempo_comida"].'" '.$strSelect.' >'.$row["nombre"].'</option>';
                     }
                   ?>
                 </select>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-             <div class="form-group selector-combo"  >
-                <label for="recipient-name" class="form-control-label">Combos:</label>
-                <select class="form-control" required="" id="IdCombo"  name="IdCombo" >
-                  <option value="0">Seleccione:</option>
-                </select>
-              </div>
-             </div>
-             <div class="col-md-6">
-              <div class="form-group selector-combo"  >
-                 <label for="recipient-name" class="form-control-label">VACIO:</label>
-               </div>
-              </div>
-          </div>
-
              <div class="row" id="id_detalle_g" >
-                  <div class="col-md-6"  >
+                  <div class="col-md-12"  >
                     <div class="form-group"  >
                       <div style="height: 300px; border: 1px solid" id="divProgramaCurso">
-                      </div>
-                  </div>
-                </div>
-                <div class="col-md-6"  >
-                     <div class="form-group">
-                         <div class="col-xs-11" id="idResponsiv" style="height: 400px; background-color: #e7e7e7; border: 1px solid #ccc; overflow-x: hidden; overflow-y: visible;">
-                         <div class="form-group" id="idWidth">
+                        <?php
+                          /*
+                            $pedidos_detalle =  $usuarios->getPedidoDetalleComboController("usuarios",$idpedido,$idcliente);
+                            foreach ($pedidos_detalle as $row) {
 
-
-                                    <div class="form-group">
-                                        <div class="col-xs-12">
-                                          <table class="table table-bordered"   id="divDetalle" >
-                                            <thead  class="bg-primary">
-                                              <tr>
-                                                <td align="center" style="width: 50px">&nbsp;</td>
-                                                <td align="center" style="width: 30px">Total</td>
-                                                <td align="center" style="width: 30px">Cantidad</td>
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                          </table>
-                                        </div>
-                                    </div>
-
-
-                          </div>
+                                echo '<input type="text" value="'.$row["id_combo"].'" '.$strSelect.' >';
+                            }*/
+                         ?>
                       </div>
                   </div>
                 </div>
@@ -126,24 +107,7 @@ print_r($_GET);
  $("#divGeneral").css("overflow-y","");
  $("#divGeneral").css("overflow-y","visible");
 
- $("#IdTiempoComida").change(function() {
-   $.ajax({
 
-            url: "http://localhost/sliceBreadWeb/views/modal/modal_pedidos0.php",
-             //url: "http://localhost/sliceBreadWeb/controller/pedidos_controller/pedidos_controller.php?contentCombo=true",
-            data:{
-                "contentCombo" : "true",
-                "tiempo_comida" : $("#IdTiempoComida").val()
-            },
-             type: "POST",
-            success: function(response)
-            {
-               console.log(response);
-                $('.selector-combo select').html(response).fadeIn();
-              //  $("#id_detalle_g").hide();
-            }
-    });
- });
 
 // $("#id_detalle_g").hide();
  $("#IdCombo").change(function() {
@@ -157,59 +121,6 @@ print_r($_GET);
       }
    });
 
-
-   function fntGetDetalle(){
-       $.ajax({
-              url: "http://localhost/sliceBreadWeb/views/modal/modal_pedidos0.php",
-              async: false,
-              data:{
-                  "contentDetalle" : true,
-                  "tiempo_comida" : $("#IdTiempoComida").val(),
-                  "IdCombo" : $("#IdCombo").val()
-              },
-              type:'post',
-              dataType:'html',
-              beforeSend:function(){
-              },
-              success:function(data){
-                  $("#divProgramaCurso").html("");
-                  $("#divProgramaCurso").html(data);
-              }
-          });
-   }
-  var intRubro = 1;
-   function fntAgregar($intSumaTotal){
-     //alert();
-
-     var strNombreRubro = "";
-     var strHtmlInputText = "";
-     var boolExistenDetalles = false;
-     var strCombo = $( "#IdCombo option:selected" ).text();;
-
-
-
-
-
-                                 strHtml = "<tr  style=\"border-bottom: 1px solid #929496;\" id=\"divDetalle_"+intRubro+"\" >"+
-                                               "<td class=\" text-left\">"+
-                                                   strCombo+
-                                               "</td>"+
-                                               "<td class=\" text-left\">"+
-                                                   $intSumaTotal+
-                                               "</td>"+
-                                               "<td>"+
-                                                 "<span id=\"imgDelete_"+intRubro+"\" onclick=\"fntDeleteRubroDetalle('"+intRubro+"');\" class=\"fa fa-trash-o btn btn-danger btn-sm\"></span>"+
-                                               "</td>"+
-                                          "</tr>";
-              if(boolExistenDetalles){
-                  $("#divDetalle_"+intRubro).append(strHtml);
-              }
-              else{
-                  $("#divDetalle").append(strHtml);
-              }
-
-              intRubro ++;
-   }
 
    function fntDeleteRubroDetalle(intRubro){
         //arrSplitRubro = intRubro.split("_");
