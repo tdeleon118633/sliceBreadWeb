@@ -52,7 +52,7 @@
               <div class="col-md-6">
                  <div class="form-group">
                     <label for="recipient-name" class="form-control-label">Rol:</label>
-                    <input type="email" class="form-control" id="recipient-name" name="id_rol" value="<?php echo $value['id_rol'] ?>" required="">
+                    <input type="text" class="form-control" id="recipient-name" name="id_rol" value="<?php echo $value['id_rol'] ?>" required="">
                 </div>
               </div>
  

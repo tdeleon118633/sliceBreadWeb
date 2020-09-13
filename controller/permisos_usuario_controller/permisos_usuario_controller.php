@@ -1,6 +1,6 @@
 <?php
 
-  require_once $path_direccion.'/model/permisos_usuario_Model/permisos_usuario_Model.php';
+  require_once $path_direccion.'/model/permisos_usuario_model/permisos_usuario_Model.php';
 
  class PermisosUsuarioController {
    //LISTA TODOS LOS USUARIOS

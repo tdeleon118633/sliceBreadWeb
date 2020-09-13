@@ -57,9 +57,9 @@
         $agregar = isset($_POST['agregar']) ? $_POST['agregar'] : "";
         $eliminar= isset($_POST['eliminar']) ? $_POST['eliminar'] : "";
         $visualizar = isset($_POST['visualizar']) ? $_POST['visualizar'] : "";
-        $rol = isset($_POST['id_rol']) ? $_POST['id_rol'] : "";
+        $id_rol = isset($_POST['id_rol']) ? $_POST['id_rol'] : "";
         $idusuario= isset($_POST['idusuario']) ? $_POST['idusuario'] : 0;
-        $id_usuario = 22;
+        $id_usuario = 15;
         
         //$id_usuario = intval($_SESSION['id_usuario']);
 

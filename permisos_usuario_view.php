@@ -20,7 +20,7 @@
 			 $usuario->deletePermisosUsuarioController();
 			}
 		 else{
-		 require_once('/views/modules/permisos_usuario/editar_permisos_usuario.php');
+		 require_once('views/modules/permisos_usuario/editar_permisos_usuario.php');
 		}
 
 	 ?>

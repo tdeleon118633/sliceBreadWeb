@@ -103,8 +103,8 @@
 
 		<?php
 
-		// $usuario = new UsuariosController();
-		 //$usuario->ingresarUsuariocontroller();
+		 $usuario = new PermisosUsuarioController();
+		// $usuario->ingresarUsuariocontroller();
      //$usuario->deleteUsuariosController();
 
 		 ?>
