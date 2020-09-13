@@ -1,13 +1,13 @@
 <?php
- require_once '/controller/categorias_controller/categorias_controller.php';
- $idusuario = $_GET['id_restaurantes'];
-     $consulta = $conexion->query("SELECT * FROM categorias WHERE id_categorias = $id_categorias");
+ require_once '/controller/combo_controller/combo_controller.php';
+ $idusuario = $_GET['id_combo'];
+     $consulta = $conexion->query("SELECT * FROM combo WHERE id_combo = $id_combo");
 ?>
 
 
 <div class="container">
 	<ol class="breadcrumb">
-	   <li class="breadcrumb-item active"><i class="fa fa-list"> </i>EDITAR TIEMPO DE COMIDA </li>
+	   <li class="breadcrumb-item active"><i class="fa fa-list"> </i>EDITAR COMBO </li>
 	</ol>
   <div class="row">
      <div class="col-md-7">
@@ -15,14 +15,12 @@
 
 	      	<form method="post">
 	      		<?php foreach ($consulta as $row => $value): ?>
-	      			<input type="hidden" name="id_categorias" value="<?php echo $value['id_categorias'] ?>">
+	      			<input type="hidden" name="id_combo" value="<?php echo $value['id_combo'] ?>">
 			  			<div class="form-group">
-			    			<label for="formGroupExampleInput">Nombre Tiempo de comida</label>
+			    			<label for="formGroupExampleInput">Nombre Combo</label>
 			   		 		<input type="text" name="nombre" class="form-control" id="formGroupExampleInput" value="<?php echo $value['nombre'] ?>">
 			 		 </div>
-
-
-
+			  
 		      <div class="form-group">
 		       	<label for="recipient-name" class="form-control-label">Estado:</label>
 					<select class="form-control chosen-select" id="activo" name="activo">
@@ -33,7 +31,7 @@
 
 		      </div>
 
-			<button type="submit" name="editarCategorias" class="btn btn-primary">Guardar Cambios</button>
+			<button type="submit" name="editarCombo" class="btn btn-primary">Guardar Cambios</button>
            </form>
 	      <?php endforeach ?>
      </div>

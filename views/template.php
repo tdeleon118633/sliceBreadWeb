@@ -6,7 +6,7 @@ require 'header/menu.php';
  print "TEST";
 
 $respuesta = TemplateModel::getTemplateModel('pedido');
-print_r($respuesta);
+//print_r($respuesta);
 
 ?>
 <br>

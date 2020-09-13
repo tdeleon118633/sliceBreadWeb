@@ -101,7 +101,8 @@
         <div class="dropdown-menu" id="sub" aria-labelledby="responsiveNavbarDropdown">
           <a id="sub" class="dropdown-item" href="roles_view.php"><i class="btn btn-primary btn-sm  fa fa fa-users"></i>Roles</a>
           <a id="sub" class="dropdown-item" href="restaurantes_view.php"><i class="btn btn-primary btn-sm  fa fa-user-plus"></i>Restaurantes</a>
-          <a id="sub" class="dropdown-item" href="listadoProd"><i class="btn btn-primary btn-sm  fa fa-list-ol"></i>Categorias</a>
+          <a id="sub" class="dropdown-item" href="tiempo_comida_view.php"><i class="btn btn-primary btn-sm  fa fa-list-ol"></i>Tiempo Comida</a>
+          <a id="sub" class="dropdown-item" href="combo_view.php"><i class="btn btn-primary btn-sm  fa fa-list-ol"></i>Combos</a>
         </div>
       </li>
 
