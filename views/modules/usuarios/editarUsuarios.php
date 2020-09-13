@@ -78,7 +78,7 @@
                     <select class="form-control chosen-select" id="tipo" name="tipo">
                      <option value=""  required="" >Seleccione una opción...</option>
                        <option value="admin" <?php echo $value['tipo'] == 'admin' ? 'selected' : ''   ?> > Administrador</option>
-                       <option value="normal" <?php echo $value['tipo'] == 'normal' ? 'selected' : '' ?>  > Normal</option>
+                       <option value="normal" <?php echo $value['tipo'] == 'normal' ? 'selected' : '' ?>  > Cliente</option>
                     </select>
                 </div>
               </div>
